@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { MdAddShoppingCart } from 'react-icons/md'
 
-import { formatPrice } from '../../utils/format'
-import api from '../../services/api'
+import { formatPrice } from '@client/utils/format'
 
-import { IProduct } from '../../store/modules/cart/types'
-import { CartDispatcher } from '../../store/modules/cart/action'
+import { IProduct } from '@client/store/modules/cart/types'
+import { CartDispatcher } from '@client/store/modules/cart/action'
 
 import { ProductList } from './styles'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../store/modules/rootReducer'
-interface IAmount {
-  [key: number]: number
-}
+import { RootState } from '@client/store/modules/rootReducer'
+import { getProducts } from '@services/product'
+import { IAmount, ProductsProps } from './type'
+import Modal from '@components/modal'
+import CartView from '../cart'
 
-const Home: React.FC = () => {
-  const [products, setProducts] = useState<IProduct[]>([])
-
+const ProductView: FC<ProductsProps> = ({ products }) => {
   const cartState = useSelector((state: RootState) => {
+    //total of all product added to cart
     const amounts = state.cart.reduce((total: IAmount, product): IAmount => {
       total[product.id] = product.amount
 
@@ -31,19 +30,6 @@ const Home: React.FC = () => {
   })
 
   const cartDispatcher = new CartDispatcher()
-
-  useEffect(() => {
-    ;(async () => {
-      const response = await api.get<IProduct[]>('/product')
-
-      const data = response.data.map(product => ({
-        ...product,
-        priceFormatted: formatPrice(product.price)
-      }))
-
-      setProducts(data)
-    })()
-  }, [])
 
   return (
     <>
@@ -73,4 +59,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default ProductView

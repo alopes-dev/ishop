@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { darken } from 'polished';
+import styled from 'styled-components'
+import { darken } from 'polished'
 
 export const Container = styled.div`
   padding: 30px;
   background: #fff;
-
+  /* margin-top: 30px; */
   footer {
     margin-top: 30px;
     display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.div`
     align-items: center;
 
     button {
-      background: #7159c1;
+      background: #fac23c;
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -22,11 +22,11 @@ export const Container = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.03, '#7159c1')};
+        background: ${darken(0.03, '#fac23c')};
       }
     }
   }
-`;
+`
 
 export const ProductTable = styled.table`
   width: 100%;
@@ -44,6 +44,7 @@ export const ProductTable = styled.table`
 
   img {
     height: 100px;
+    border-radius: 4px;
   }
 
   strong {
@@ -74,7 +75,7 @@ export const ProductTable = styled.table`
     border: 0;
     padding: 6px;
   }
-`;
+`
 
 export const Total = styled.div`
   display: flex;
@@ -89,4 +90,4 @@ export const Total = styled.div`
     font-size: 28px;
     margin-left: 5px;
   }
-`;
+`

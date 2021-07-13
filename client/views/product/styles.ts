@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { darken } from 'polished';
+import { darken } from 'polished'
 
 export const ProductList = styled.ul`
   display: grid;
@@ -18,6 +18,7 @@ export const ProductList = styled.ul`
     img {
       align-self: center;
       max-width: 250px;
+      border-radius: 4px;
     }
 
     > strong {
@@ -34,7 +35,7 @@ export const ProductList = styled.ul`
     }
 
     button {
-      background: #7159c1;
+      background: #fac23c;
       color: #fff;
       border: 0;
       border-radius: 4px;
@@ -44,7 +45,7 @@ export const ProductList = styled.ul`
       align-items: center;
 
       &:hover {
-        background: ${darken(0.03, '#7159c1')};
+        background: ${darken(0.03, '#fac23c')};
       }
 
       div {
@@ -66,4 +67,4 @@ export const ProductList = styled.ul`
       }
     }
   }
-`;
+`

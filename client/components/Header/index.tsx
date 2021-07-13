@@ -1,27 +1,32 @@
-import React from 'react'
-// import { useSelector } from 'react-redux'
+import { FC, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { MdShoppingBasket } from 'react-icons/md'
 
-// import { RootState } from '../../store/modules/rootReducer'
+import { RootState } from '@client/store/modules/rootReducer'
 
 import { Container, Cart } from './styles'
-// import logo2 from '../../assets/blackfridayamico.svg'
+import Modal from '@components/modal'
+import CartView from '@client/views/cart'
 
-const Header: React.FC = () => {
-  // const cartStore = useSelector((state: RootState) => state.cart)
+const Header: FC = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const cartStore = useSelector((state: RootState) => state.cart)
 
   return (
     <>
+      <Modal onClose={() => {}} isOpen={isOpen}>
+        <CartView onFinish={() => setIsOpen(false)} />
+      </Modal>
       <Container>
         <div>
           <img src={'/assets/logo.svg'} alt="Logo" />
         </div>
-        <Cart>
+        <Cart onClick={() => setIsOpen(true)}>
           <div>
             <strong>Meu Carrinho</strong>
-            {/* <span>{cartStore.length} itens</span> */}
+            <span>{cartStore.length} itens</span>
           </div>
-          <MdShoppingBasket size={36} color="#fff" />
+          <MdShoppingBasket size={36} color="#fac23c" />
         </Cart>
       </Container>
     </>
