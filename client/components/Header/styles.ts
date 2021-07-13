@@ -5,7 +5,11 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   margin: 50px 0;
-
+  h1 {
+    color: #fac23c;
+    font-size: 40px;
+    margin-left: 135px;
+  }
   div {
     img {
       height: 120px;

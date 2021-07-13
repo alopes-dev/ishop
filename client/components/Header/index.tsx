@@ -21,6 +21,7 @@ const Header: FC = () => {
         <div>
           <img src={'/assets/logo.svg'} alt="Logo" />
         </div>
+        <h1>iShop</h1>
         <Cart onClick={() => setIsOpen(true)}>
           <div>
             <strong>Meu Carrinho</strong>
