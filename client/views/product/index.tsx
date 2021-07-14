@@ -1,18 +1,12 @@
 import { FC, useEffect, useState } from 'react'
 import { MdAddShoppingCart } from 'react-icons/md'
 
-import { formatPrice } from '@client/utils/format'
-
-import { IProduct } from '@client/store/modules/cart/types'
 import { CartDispatcher } from '@client/store/modules/cart/action'
 
 import { ProductList } from './styles'
 import { useSelector } from 'react-redux'
 import { RootState } from '@client/store/modules/rootReducer'
-import { getProducts } from '@services/product'
 import { IAmount, ProductsProps } from './type'
-import Modal from '@components/modal'
-import CartView from '../cart'
 
 const ProductView: FC<ProductsProps> = ({ products }) => {
   const cartState = useSelector((state: RootState) => {

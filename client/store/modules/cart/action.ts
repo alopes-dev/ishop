@@ -15,6 +15,9 @@ export class CartDispatcher {
   addToCart = (product: IProduct) =>
     this.dispatch({ type: 'ADD_TO_CART', payload: product })
 
+  loadFromLocalStorage = () =>
+    this.dispatch({ type: 'LOAD_FROM_LOCALSTORAGE_TO_CART', payload: true })
+
   removeFromCart = (id: number) =>
     this.dispatch({ type: 'REMOVE_FROM_CART', payload: { id } })
 

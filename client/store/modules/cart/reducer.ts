@@ -7,7 +7,13 @@ export const cartReducer: Reducer<ICart[], DispacthAction> = (
   state = initital_state,
   action
 ): ICart[] => {
-  if (action.type === 'ADD_TO_CART') {
+  if (action.type === 'LOAD_FROM_LOCALSTORAGE_TO_CART') {
+    const carts = localStorage.getItem('ishop:cart')
+    if (!carts) return state
+
+    state = JSON.parse(carts)
+    return state
+  } else if (action.type === 'ADD_TO_CART') {
     const currentProductIndex = state.findIndex(
       product => product.id === action.payload.id
     )
@@ -18,11 +24,11 @@ export const cartReducer: Reducer<ICart[], DispacthAction> = (
     }
 
     state[currentProductIndex].amount += 1
-
+    localStorage.setItem('ishop:cart', JSON.stringify(state))
     return state
   } else if (action.type === 'REMOVE_FROM_CART') {
     state = state.filter(product => product.id !== action.payload.id)
-
+    localStorage.setItem('ishop:cart', JSON.stringify(state))
     return state
   } else if (action.type === 'UPDATE_AMOUNT') {
     if (action.payload.amount === 0) {
@@ -37,6 +43,7 @@ export const cartReducer: Reducer<ICart[], DispacthAction> = (
       return product
     })
 
+    localStorage.setItem('ishop:cart', JSON.stringify(state))
     return state
   }
   return initital_state

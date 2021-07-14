@@ -4,8 +4,6 @@ import ProductView from '@client/views/product'
 import { IProduct } from '@client/store/modules/cart/types'
 import { formatPrice } from '@client/utils/format'
 import { getProducts } from '@services/product'
-import Modal from '@components/modal'
-import CartView from '@client/views/cart'
 
 type HomePageProps = {
   products: IProduct[]

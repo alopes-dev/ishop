@@ -17,5 +17,9 @@ export interface IUpdateAmount {
 
 export interface DispacthAction {
   payload: any
-  type: 'ADD_TO_CART' | 'REMOVE_FROM_CART' | 'UPDATE_AMOUNT'
+  type:
+    | 'ADD_TO_CART'
+    | 'REMOVE_FROM_CART'
+    | 'UPDATE_AMOUNT'
+    | 'LOAD_FROM_LOCALSTORAGE_TO_CART'
 }

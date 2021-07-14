@@ -11,6 +11,9 @@ import { CartDispatcher } from '@client/store/modules/cart/action'
 
 import { Container, ProductTable, Total } from './styles'
 import { formatPrice } from '@client/utils/format'
+import { useEffect } from 'react'
+import { useState } from 'react'
+import { IProduct } from '@client/store/modules/cart/types'
 
 interface ITotal {
   total: number
@@ -21,6 +24,7 @@ type CardViewProps = {
 }
 
 const CartView: FC<CardViewProps> = ({ onFinish }) => {
+  const [productSelected, setProductSelected] = useState<IProduct[]>()
   //get all the product added to cart
   const cartState = useSelector((state: RootState) => {
     //multiply all amount of product to product price
@@ -44,6 +48,14 @@ const CartView: FC<CardViewProps> = ({ onFinish }) => {
   function handleDeleteOfCart(id: number) {
     cartDispatcher.removeFromCart(id)
   }
+
+  // useEffect(() => {
+  //   const carts = localStorage.getItem('ishop:cart')
+  //   if (!carts) return
+
+  //   cartDispatcher.loadFromLocalStorage(JSON.parse(carts))
+  //   // setProductSelected(JSON.parse(carts))
+  // }, [])
 
   return (
     <>
