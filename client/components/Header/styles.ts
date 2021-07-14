@@ -18,6 +18,24 @@ export const Container = styled.header`
       top: 0;
     }
   }
+
+  @media (max-width: 600px) {
+    width: 908px;
+
+    h1 {
+      color: #fac23c;
+      font-size: 70px;
+      margin-left: 235px;
+    }
+    div {
+      img {
+        height: 150px;
+        width: 150px;
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
 `
 
 export const Cart = styled.div`
@@ -43,6 +61,24 @@ export const Cart = styled.div`
     span {
       font-size: 12px;
       color: #fac23c;
+    }
+  }
+
+  @media (max-width: 600px) {
+    div {
+      text-align: right;
+      margin-right: 10px;
+
+      strong {
+        font-size: 32px;
+      }
+
+      span {
+        font-size: 32px;
+      }
+      svg {
+        font-size: 142px;
+      }
     }
   }
 `

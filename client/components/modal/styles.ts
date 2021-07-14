@@ -6,11 +6,16 @@ export const ModalContent = styled.div`
   top: 50%;
   left: 50%;
   min-width: 1020px;
-  /* min-height: 100px; */
   padding: 15px;
   border-radius: 10px;
   transform: translate(-50%, -50%);
   background: #fff;
+
+  @media (max-width: 600px) {
+    min-width: 840px;
+    top: 100%;
+    left: 140%;
+  }
 `
 export const ImproveBackground = styled.div`
   z-index: 9998;
